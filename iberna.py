@@ -81,7 +81,7 @@ label = tk.Label(root, image=photo)
 label.place(x=0, y=0, relwidth=1, relheight=1)  # Imposta la posizione e le dimensioni
 
 
-#prosegui mannaggiaddio
+#prosegui
 
 tk.Label(root, text="",bg='#ffffff', fg='#000', font=("Helvetica", 4)).pack()
 # Etichetta per la scala
