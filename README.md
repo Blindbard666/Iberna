@@ -1,0 +1,1 @@
+only file, it contains the background image in base64. It create the main window with 9 radiobuttons. the user choose how many minutes and clicks the button below. After the countdown the system will hybernate (if you don't close the window before)
