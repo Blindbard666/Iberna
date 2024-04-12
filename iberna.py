@@ -14,7 +14,7 @@ image_bytes = base64.b64decode(base64_image)
 image = Image.open(io.BytesIO(image_bytes))
 #fine immagine
 
-
+#finestra countdown da aprire dopo la scelta
 
 def avvia_iberna(valore_scelto):
     def visualizza_countdown(num_of_secs):
@@ -49,13 +49,17 @@ def avvia_iberna(valore_scelto):
 
         finestra.mainloop()
     try:
-        # Calcola il valore da passare al batch "iberna"
+        # Calcola il valore da passare al countdown
         valore_parametro = valore_scelto * 60
     #    os.system(f"start iberna {valore_parametro}")
         root.destroy()
         visualizza_countdown(valore_parametro)
     except Exception as e:
         messagebox.showerror("Errore", f"Si è verificato un errore: {str(e)}")
+
+#fine finestra countdown da aprire dopo la scelta
+
+#inizio finestra principale
 
 def seleziona_valore():
     valore_scelto = var.get()
@@ -81,7 +85,7 @@ label = tk.Label(root, image=photo)
 label.place(x=0, y=0, relwidth=1, relheight=1)  # Imposta la posizione e le dimensioni
 
 
-#prosegui mannaggiaddio
+#prosegui
 
 tk.Label(root, text="",bg='#ffffff', fg='#000', font=("Helvetica", 4)).pack()
 # Etichetta per la scala
@@ -95,10 +99,10 @@ for valore in valori:
     tk.Radiobutton(root, text=f"{valore}",bg='#ffffff', fg='#000', font=("Helvetica", 14), variable=var, value=valore).pack()
 
 tk.Label(root, text="",bg='#ffffff', fg='#000', font=("Helvetica", 4)).pack()
-# Bottone per avviare il batch
+
+# Bottone per avviare il countdown
 tk.Button(root, text="AVVIA",bg='#ffffff', fg='#009999', font=("Helvetica", 18, "bold"), command=seleziona_valore).pack()
 
 root.mainloop()
 
-# pyinstaller main.py --noconsole --onefile --name iberna --icon=iceiberna.ico
-# python setup.py py2exe
+#fine finestra principale
