@@ -15,7 +15,7 @@ image = Image.open(io.BytesIO(image_bytes))
 #fine immagine
 
 
-
+#questo parte dopo che si preme il pulsante avvia
 def avvia_iberna(valore_scelto):
     def visualizza_countdown(num_of_secs):
         def update_label():
@@ -51,11 +51,14 @@ def avvia_iberna(valore_scelto):
     try:
         # Calcola il valore da passare al batch "iberna"
         valore_parametro = valore_scelto * 60
-    #    os.system(f"start iberna {valore_parametro}")
         root.destroy()
         visualizza_countdown(valore_parametro)
     except Exception as e:
         messagebox.showerror("Errore", f"Si è verificato un errore: {str(e)}")
+
+#fine cosa fare dopo pressione pulsante
+
+#inizio finestra principale
 
 def seleziona_valore():
     valore_scelto = var.get()
