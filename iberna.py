@@ -124,6 +124,3 @@ tk.Button(root, text="AVVIA",bg='#ffffff', fg='#009999', font=("Helvetica", 18, 
 root.mainloop()
 
 #fine finestra principale
-
-# pyinstaller main.py --noconsole --onefile --name iberna --icon=iceiberna.ico
-# python setup.py py2exe
