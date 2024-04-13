@@ -24,6 +24,11 @@ def avvia_iberna(valore_scelto):
                 num_minutes, seconds = divmod(num_of_secs, 60)
                 # Calcola le ore e i minuti
                 num_hours, minutes = divmod(num_minutes, 60)
+
+                #muovi la finestra
+                #newpos = 300 + ((60-seconds))
+                #finestra.geometry(f'{window_width}x{window_height}+{center_x}+{newpos}')
+
                 # Restituisci il risultato formattato
                 return f"{num_hours:02d}:{minutes:02d}:{seconds:02d}"
 
@@ -38,7 +43,13 @@ def avvia_iberna(valore_scelto):
 
         finestra = tk.Tk()
         finestra.title("Countdown Ibernazione")
-        finestra.geometry("350x80+800+400")
+        window_width = 350
+        window_height = 80
+        screen_width = finestra.winfo_screenwidth()
+        screen_height = finestra.winfo_screenheight()
+        center_x = int(screen_width / 2 - window_width / 2)
+        center_y = int(screen_height / 2 - window_height / 2) - 70
+        finestra.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
         finestra.resizable(False, False)
         finestra["bg"] = "#49a"
 
@@ -71,7 +82,14 @@ def seleziona_valore():
 # Creazione dell'interfaccia grafica
 root = tk.Tk()
 root.title("Iberna tra...")
-root.geometry("400x400+800+280")
+window_width = 400
+window_height = 400
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+center_x = int(screen_width/2 - window_width / 2)
+center_y = int(screen_height/2 - window_height / 2) - 70
+root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+
 root.resizable(False,False)
 root["bg"] = "#ffffff"
 
@@ -106,3 +124,6 @@ tk.Button(root, text="AVVIA",bg='#ffffff', fg='#009999', font=("Helvetica", 18, 
 root.mainloop()
 
 #fine finestra principale
+
+# pyinstaller main.py --noconsole --onefile --name iberna --icon=iceiberna.ico
+# python setup.py py2exe
